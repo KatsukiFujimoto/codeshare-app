@@ -39,7 +39,7 @@ passport.use(new LocalStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/auth/facebook/callback',
+    callbackURL: 'https://codeshare-app.herokuapp.com/auth/facebook/callback',
     profileFields: ['id', 'displayName', 'email']
   }, function(token, refreshToken, profile, done) {
     User.findOne({'facebookId': profile.id}, function(err, user) {

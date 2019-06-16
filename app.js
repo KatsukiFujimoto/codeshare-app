@@ -15,7 +15,13 @@ var indexRouter = require('./routes/index');
 var authRouter = require('./routes/auth');
 var taskRouter = require('./routes/task');
 
-mongoose.connect(config.dbConnstring);
+mongoose.connect(config.dbConnstring, { useNewUrlParser: true })
+  .then(() => {
+    console.log('Connected to mongo database');
+  })
+  .catch((err) => {
+    console.log('Error connecting mongo dataabse', err);
+  });
 global.User = require('./models/user');
 global.Task = require('./models/task');
 
