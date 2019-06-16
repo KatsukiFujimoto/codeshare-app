@@ -25,7 +25,7 @@ router.get('/task/:id', function(req, res) {
       if(data) {
         res.render('task', {content: data.content, roomId: data.id});
       } else {
-        req.render('error');
+        res.render('error');
       }
     })
   } else {
